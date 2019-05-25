@@ -1,0 +1,15 @@
+{
+  "name": "hellocypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cypress run --record --key 471b857d-6740-4ffe-b219-6be883ced987",
+    "openCypress": "./node_modules/.bin/cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.3.1"
+  }
+}

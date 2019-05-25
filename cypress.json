@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://computer-database.herokuapp.com/",
+  "screenshotOnRunFailure": true,
+  "projectId": "jr5bic"
+}
