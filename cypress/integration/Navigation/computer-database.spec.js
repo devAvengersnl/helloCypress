@@ -1,21 +1,27 @@
+import Page from "../../support/dsl/Page";
+import LandingPage from "../../support/dsl/LandingPage";
+
 describe('computer database navigation', () => {
     
     beforeEach(() => {
-        cy.visit("computers");
+        Page.goToComputerDatabasePage();
     });
 
     it('should navigate to computer database', () => {
-        cy.get("h1 a:contains('Computer database')").should('be.visible');
+        LandingPage.goToCreateNewComputerPage();
     });
 
     it('should navigate to all the pages of the computer database', () => {
-        cy.get("a:contains('Add a new computer')").should('be.visible');
-        cy.get("a:contains('Add a new computer')").click();
-        cy.get("h1:contains('Add a computer')").should('be.visible');
-        cy.get(".btn:contains('Cancel')").should('be.visible');
-        cy.get(".btn:contains('Cancel')").click();
-        cy.get("h1 a:contains('Computer database')").should('be.visible');
-        cy.get("h1:contains('Add a computer')").should('be.visible');
+        LandingPage
+            .goToCreateNewComputerPage()
+            .fillComputerName('test')
+            .fillIntroduceDate("1999-01-01")
+            .fillDiscontinuedDate("2001-01-01")
+            .selectCompanyName('Samsung Electronics')
+            .createComputer();
+            
+        LandingPage
+            .verifyAlertMessage("Done! Computer test has been created");
     });
 
 });
